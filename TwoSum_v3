@@ -1,0 +1,12 @@
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        Map <Integer,Integer> numsMap = new HashMap<Integer,Integer>();
+        for(int index = 0; index<nums.length;index++){
+            int compliment = target - nums[index];
+            if (numsMap.containsKey(compliment)  )
+                return new int[] {index,numsMap.get(compliment)};
+            numsMap.put(nums[index],index);
+        }
+        throw new IllegalArgumentException("Array does not contain a two sum target");
+    }
+}

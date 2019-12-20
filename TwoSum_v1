@@ -1,0 +1,35 @@
+
+// only if input array is sorted
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        int left = 0;
+        int right = nums.length-1;
+        int test = nums[left]+nums[right];
+        int []indices= {left,right};
+        if(target >= 0){
+            while (test!=target){
+                if(test > target){
+                    right --;
+                }
+                else{
+                    left++;
+                }
+                test = nums[left]+nums[right];
+            }
+        }
+        else {
+            while (test!=target){
+                if(test < target){
+                    right --;
+                }
+                else{
+                    left++;
+                }
+                test = nums[left]+nums[right];
+            }
+        }
+        indices [0] = left;
+        indices [1] = right;
+        return indices;
+    }
+}
