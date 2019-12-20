@@ -1,0 +1,21 @@
+class Solution {
+    public int reverse(int x) {
+        String num = Integer.toString(x);
+        StringBuilder in = new StringBuilder(); 
+        Long result;
+        if(x<0){
+            in.append(num.substring(1,num.length()));
+            result = Long.valueOf("-"+in.reverse().toString());
+            if(result < Integer.MIN_VALUE)
+                return 0;
+            return result.intValue();
+        }
+        else {
+            in.append(num);
+            result = Long.valueOf(in.reverse().toString());
+            if(result > Integer.MAX_VALUE)
+                return 0;
+            return result.intValue();
+        }
+    }
+}

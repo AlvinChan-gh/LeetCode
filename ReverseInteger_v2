@@ -1,0 +1,24 @@
+class Solution {
+    public int reverse(int x) {
+        String num = Integer.toString(x);
+        if(x<0){
+            Long result = Long.valueOf("-"+reverseHelper(num.substring(1,num.length())));
+            if(result < Integer.MIN_VALUE)
+                return 0;
+            return result.intValue();
+        }
+        else {
+            Long result = Long.valueOf(reverseHelper(num));
+            if(result > Integer.MAX_VALUE)
+                return 0;
+            return result.intValue();
+        }
+    }
+    private String reverseHelper(String s){
+        if (s.length()<=1){
+            return s;
+        }
+        String pop = s.substring(s.length()-1,s.length());
+        return pop + reverseHelper(s.substring(0,s.length()-1));
+    }
+}
