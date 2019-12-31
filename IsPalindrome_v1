@@ -1,0 +1,13 @@
+class Solution {
+    public boolean isPalindrome(int x) {
+        if(x<0)
+            return false;
+        char num[] = Integer.toString(x).toCharArray();
+        boolean flag = true;
+        for(int index = 0; index<1+num.length/2 && flag;index++){
+            if(num[index]!=num[num.length-1-index])
+                flag = false;
+        }
+        return flag;
+    }
+}
